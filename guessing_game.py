@@ -1,11 +1,19 @@
 import random
 
-secret_number = random.randrange(1,10)
-player_guess = int(input("Guess the random number: "))
+player_response = "yes"
 
-while player_guess != secret_number:
-    print("That was incorrect.")
-    player_guess = int(input("Guess the random number: "))
+while player_response == "yes":
+    player_guess = 0
+    secret_number = random.randrange(1,3)
 
-if player_guess == secret_number:
-    print("You were right!")
+    while player_guess != secret_number:
+        player_guess = int(input("Guess the random number: "))
+        if player_guess > secret_number:
+            print("That was too high.")
+        if player_guess < secret_number:
+            print("That was too low.")
+
+    if player_guess == secret_number:
+        print("You were right!")
+
+    player_response = input("Do you want to play again? ")
